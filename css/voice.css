@@ -1,0 +1,40 @@
+/* Варіант 3 — голосове керування */
+#stage-voice{background:radial-gradient(90% 70% at 50% 20%,#2c2f45 0%,#171926 60%,#0f1019 100%)}
+#stage-voice::before{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,#3b2c22,#2a1f18);border-top:3px solid #4d3a2c}
+.smart{position:relative;z-index:1;width:440px;padding:14px;border-radius:34px;background:linear-gradient(170deg,#30333d,#1d1f26);box-shadow:0 40px 70px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.08);margin-bottom:60px}
+.smart .scr{border-radius:24px;background:#0d0f17;color:#e8e6f0;padding:20px 22px 22px;display:flex;flex-direction:column;align-items:center;min-height:600px}
+.vtop{width:100%;display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#9a98ad}
+.vtop .st{display:flex;align-items:center;gap:6px}
+.vtop .st i{width:8px;height:8px;border-radius:50%;background:#55536a}
+.vtop .st.on i{background:#ff922b;box-shadow:0 0 8px #ff922b}
+.orb{position:relative;width:150px;height:150px;margin:26px 0 18px;display:grid;place-items:center}
+.orb .core{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#5c5a78,#2b2a3d);transition:.4s}
+.orb .ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.08)}
+.orb .ring.r2{inset:-14px;border-color:rgba(255,255,255,.04)}
+.p-listening .orb .core{background:radial-gradient(circle at 40% 35%,#ffd8a8,#ff922b 55%,#d9480f);box-shadow:0 0 50px rgba(255,146,43,.55)}
+.p-listening .orb .ring{border-color:rgba(255,146,43,.5);animation:pulse 1.2s ease-out infinite}
+.p-listening .orb .ring.r2{animation-delay:.4s}
+.p-processing .orb .core{background:conic-gradient(from 0deg,#ff922b,#845ef7,#22b8cf,#ff922b);animation:spin 1.2s linear infinite;box-shadow:0 0 40px rgba(132,94,247,.45)}
+.p-done .orb .core{background:radial-gradient(circle at 40% 35%,#ffc078,#e8590c);box-shadow:0 0 40px rgba(232,89,12,.5)}
+.p-error .orb .core{background:radial-gradient(circle at 40% 35%,#ff8787,#c92a2a)}
+.orb .core svg{width:44px;height:44px;opacity:0;transition:.3s}
+.p-done .orb .core svg{opacity:1}
+@keyframes pulse{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.25);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vprompt{font-size:22px;font-weight:800;text-align:center;letter-spacing:-.01em;min-height:30px}
+.vsub{font-size:14px;color:#9a98ad;text-align:center;margin-top:6px;min-height:20px;font-weight:600;max-width:360px;line-height:1.4}
+.vsays{margin-top:14px;background:#1b1e2b;border-radius:14px;padding:10px 14px;font-size:15px;font-weight:600;color:#e8e6f0;max-width:100%;text-align:center;min-height:42px;display:flex;align-items:center;justify-content:center}
+.vsays.empty{opacity:0}
+.vstate{display:flex;gap:8px;margin-top:14px}
+.vstate span{background:#1b1e2b;border-radius:10px;padding:7px 11px;font-size:13px;font-weight:700;color:#bdbbd0}
+.vstate span.hot{background:rgba(255,146,43,.16);color:#ffa94d}
+.hints{width:100%;margin-top:auto;padding-top:18px}
+.hints h5{margin:0 0 8px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#77758c;font-weight:800}
+.hgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hint{border:1.5px solid #2c2f40;background:#151826;color:#d6d4e4;border-radius:13px;padding:10px 12px;font-size:13px;font-weight:600;text-align:left;cursor:pointer;line-height:1.3;min-height:52px}
+.hint:hover{border-color:#ff922b}
+.hint q{quotes:"«" "»"}
+.mic{margin-top:18px;width:84px;height:84px;border-radius:50%;border:0;background:linear-gradient(160deg,#ff922b,#e8590c);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 26px -8px rgba(232,89,12,.8)}
+.mic svg{width:34px;height:34px}
+.p-listening .mic{background:#2b2d3d;box-shadow:0 0 0 6px rgba(255,146,43,.25)}
+.wake{font-size:12px;color:#77758c;margin-top:8px;font-weight:600}

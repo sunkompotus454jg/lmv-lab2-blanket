@@ -1,0 +1,69 @@
+/* Варіант 2 — мобільний застосунок */
+#stage-app{background:radial-gradient(110% 80% at 50% 10%,#ece4d8 0%,#ddd1bf 100%)}
+.phone{width:350px;height:712px;border-radius:52px;background:#141414;padding:11px;box-shadow:0 40px 70px -30px rgba(40,25,10,.6),0 0 0 2px #2b2b2b,inset 0 0 0 1px #3a3a3a}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#f7f3ec}
+.notch{position:absolute;top:10px;left:50%;width:96px;height:28px;margin-left:-48px;background:#141414;border-radius:20px;z-index:30}
+.sbar{position:absolute;top:0;left:0;right:0;height:46px;display:flex;justify-content:space-between;align-items:center;padding:6px 28px 0;font-weight:800;font-size:14px;z-index:25}
+.sbar .icons{display:flex;gap:5px;align-items:center}
+.view{position:absolute;inset:0;transition:opacity .25s, transform .25s}
+.view.hidden{opacity:0;pointer-events:none;transform:scale(.97);visibility:hidden}
+.home-ind{position:absolute;bottom:8px;left:50%;width:120px;height:5px;margin-left:-60px;border-radius:3px;background:#1f1b16;opacity:.85;z-index:40;border:0;padding:0;cursor:pointer}
+.home-ind::before{content:"";position:absolute;inset:-12px -20px}
+
+/* launcher */
+.launcher{background:linear-gradient(170deg,#2b2350 0%,#4b2d63 45%,#b4566a 100%);color:#fff;padding:70px 22px 0}
+.launcher .clock{font-size:64px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.launcher .date{font-size:15px;opacity:.85;margin-top:6px;font-weight:600}
+.grid{position:absolute;left:18px;right:18px;bottom:44px;display:grid;grid-template-columns:repeat(4,1fr);row-gap:18px}
+.appicon{border:0;background:none;color:#fff;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11.5px;font-weight:600;cursor:pointer;padding:0}
+.appicon .ic{width:60px;height:60px;border-radius:17px;display:grid;place-items:center;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.appicon .ic svg{width:30px;height:30px}
+.appicon.blanket .ic{background:linear-gradient(140deg,#ff922b,#e8590c)}
+
+/* app */
+.app{padding:52px 18px 26px;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+.app-head .conn{font-size:12.5px;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:6px}
+.app-head .conn i{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.app-head h2{margin:2px 0 0;font-size:27px;font-weight:800;letter-spacing:-.02em}
+.hero{border:0;text-align:left;width:100%;cursor:pointer;border-radius:22px;padding:16px 18px;background:#e9e3d9;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:104px;transition:background .3s}
+.hero .k{font-size:13px;font-weight:700;opacity:.7}
+.hero .v{font-size:22px;font-weight:800;margin-top:2px}
+.hero .s{font-size:12.5px;margin-top:4px;opacity:.75;font-weight:600}
+.hero.on{background:linear-gradient(135deg,#ff922b 0%,#e8590c 100%);color:#fff;box-shadow:0 12px 24px -12px rgba(232,89,12,.8)}
+.switch{width:58px;height:34px;border-radius:20px;background:#c9c0b2;position:relative;flex:none;transition:.25s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.2);transition:.25s}
+.hero.on .switch{background:rgba(255,255,255,.35)}
+.hero.on .switch::after{left:27px}
+.acard{background:#fff;border-radius:20px;padding:14px 14px 14px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.acard .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.acard .row b{font-size:14.5px}
+.acard .row span{font-size:13px;color:var(--muted);font-weight:700}
+.levels{display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.levels button{height:48px;border:0;border-radius:10px;background:#f0ebe3;font-weight:800;font-size:15px;color:#7a7065;cursor:pointer;transition:background .15s}
+.levels button.fill{background:#ffd8b5;color:#b0440a}
+.levels button.sel{background:var(--heat);color:#fff}
+.levels.disabled button{opacity:.55}
+.zones{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.zone{border:0;border-radius:14px;padding:12px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;background:#f0ebe3;color:#7a7065;cursor:pointer}
+.zone.on{background:#fff0e3;color:#b0440a;box-shadow:inset 0 0 0 1.5px #ffc08a}
+.zone i{width:18px;height:18px;border-radius:6px;border:2px solid currentColor;display:grid;place-items:center}
+.zone.on i{background:var(--heat);border-color:var(--heat)}
+.zone.on i::after{content:"";width:7px;height:4px;border:2px solid #fff;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.list{background:#fff;border-radius:20px;overflow:hidden}
+.li{width:100%;border:0;background:none;display:flex;align-items:center;justify-content:space-between;padding:15px 14px;font-size:14.5px;font-weight:700;cursor:pointer;color:var(--ink);text-align:left;min-height:56px}
+.li + .li{border-top:1px solid #f0ebe3}
+.li .val{color:var(--muted);font-weight:700;display:flex;align-items:center;gap:6px;font-size:14px}
+.li .val.set{color:var(--heat)}
+.scrim{position:absolute;inset:0;background:rgba(20,14,8,.38);opacity:0;pointer-events:none;transition:opacity .25s;z-index:60}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#fffdf9;border-radius:28px 28px 0 0;padding:12px 18px 34px;transform:translateY(105%);transition:transform .28s cubic-bezier(.2,.8,.2,1),visibility 0s .28s;z-index:61;visibility:hidden}
+.screen.sheet-open .scrim{opacity:1;pointer-events:auto}
+.screen.sheet-open .sheet{transform:none;visibility:visible;transition:transform .28s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.sheet .handle{width:40px;height:5px;border-radius:3px;background:#ddd3c4;margin:0 auto 14px}
+.sheet h4{margin:0;font-size:20px;font-weight:800}
+.sheet p{margin:4px 0 16px;font-size:13px;color:var(--muted);font-weight:600}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{height:60px;border:0;border-radius:16px;background:#f3ede4;font-size:18px;font-weight:800;color:var(--ink);cursor:pointer}
+.chip.sel{background:var(--heat);color:#fff}
+.chip.none{font-size:15px;color:var(--muted)}
+.toast{position:absolute;left:50%;bottom:30px;transform:translate(-50%,20px);background:#1f1b16;color:#fff;font-size:13px;font-weight:700;padding:10px 14px;border-radius:12px;opacity:0;transition:.25s;z-index:80;white-space:nowrap;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мобільний застосунок — керування електроковдрою</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 9c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/><path d="M4 15c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/></svg></div>
+    <div><h1>Електроковдра — прототипи керування</h1><p>Лабораторна робота №2 з ЛМВ · Кисіль В. О., ПЗПІ-25-3</p></div>
+  </div>
+  <nav class="tabs" aria-label="Варіанти інтерфейсу">
+    <a href="index.html" data-tab="remote"><span class="n">1</span>Пульт</a>
+    <a href="app.html" data-tab="app" aria-current="page"><span class="n">2</span>Мобільний застосунок</a>
+    <a href="voice.html" data-tab="voice"><span class="n">3</span>Голосове керування</a>
+  </nav>
+  <div class="laws">
+    <button class="law f" id="lawFitts" aria-pressed="false"><i></i>Закон Фіттса</button>
+    <button class="law h" id="lawHick" aria-pressed="false"><i></i>Закон Хіка</button>
+  </div>
+</header>
+
+<main>
+<section class="panel active" id="tab-app">
+  <div class="stage" id="stage-app">
+    <div class="overlay"></div>
+    <div class="phone">
+      <div class="screen" id="a-screen">
+        <div class="notch"></div>
+        <div class="sbar" id="a-sbar"><span>22:47</span><span class="icons"><svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg><svg width="24" height="12" viewBox="0 0 24 12" fill="none"><rect x=".5" y=".5" width="20" height="11" rx="3" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="14" height="8" rx="1.5" fill="currentColor"/><rect x="21.5" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".5"/></svg></span></div>
+
+        <!-- launcher -->
+        <div class="view launcher" id="a-home">
+          <div class="clock">22:47</div>
+          <div class="date">Середа, 18 листопада</div>
+          <div class="grid" id="a-grid">
+            <button class="appicon" data-other><span class="ic" style="background:#37b24d"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>Телефон</button>
+            <button class="appicon" data-other><span class="ic" style="background:#4dabf7"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 5h16v11H9l-5 4z"/></svg></span>Чати</button>
+            <button class="appicon" data-other><span class="ic" style="background:#495057"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></span>Камера</button>
+            <button class="appicon" data-other><span class="ic" style="background:#fab005"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span>Погода</button>
+            <button class="appicon" data-other><span class="ic" style="background:#7950f2"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span>Музика</button>
+            <button class="appicon" data-other><span class="ic" style="background:#20c997"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Карти</button>
+            <button class="appicon blanket" id="a-open" data-fitts="велика іконка" data-fitts-pos="below"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M4 9c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/><path d="M4 15c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/></svg></span>Ковдра</button>
+            <button class="appicon" data-other><span class="ic" style="background:#868e96"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>Налаштув.</button>
+          </div>
+        </div>
+
+        <!-- app -->
+        <div class="view app hidden" id="a-app">
+          <div class="app-head">
+            <div class="conn"><i></i>WARMLY Duo · підключено</div>
+            <h2>Моя ковдра</h2>
+          </div>
+          <button class="hero" id="a-power" data-fitts="уся картка — ціль" data-fitts-pos="in">
+            <div><div class="k">Нагрів</div><div class="v" id="a-hero-v">Вимкнено</div><div class="s" id="a-hero-s">Торкніться, щоб увімкнути</div></div>
+            <span class="switch"></span>
+          </button>
+          <div class="acard" id="a-levelcard">
+            <div class="row"><b>Рівень нагріву</b><span id="a-level-val">—</span></div>
+            <div class="levels disabled" id="a-levels" data-fitts="кнопки на всю ширину" data-fitts-pos="right"></div>
+          </div>
+          <div class="acard">
+            <div class="row"><b>Зони</b><span>окремо</span></div>
+            <div class="zones">
+              <button class="zone on" data-zone="body"><i></i>Тіло</button>
+              <button class="zone on" data-zone="feet"><i></i>Ноги</button>
+            </div>
+          </div>
+          <div class="list">
+            <button class="li" id="a-timer-row"><span>Таймер вимкнення</span><span class="val" id="a-timer-val">Немає ›</span></button>
+            <button class="li" id="a-sched"><span>Розклад прогріву</span><span class="val">22:30, щодня ›</span></button>
+          </div>
+        </div>
+
+        <div class="scrim" id="a-scrim"></div>
+        <div class="sheet" id="a-sheet">
+          <div class="handle"></div>
+          <h4>Вимкнути через</h4>
+          <p>Ковдра вимкнеться автоматично</p>
+          <div class="chips" id="a-chips" data-hick="6 готових варіантів" data-fitts="великі кнопки внизу екрана" data-fitts-pos="below"></div>
+        </div>
+        <div class="toast" id="a-toast"></div>
+        <button class="home-ind" id="a-homebtn" aria-label="На головний екран"></button>
+      </div>
+    </div>
+  </div>
+  <aside class="info">
+    <div class="card">
+      <h3>Коли цей варіант кращий</h3>
+      <p>Коли потрібне точне або віддалене керування: прогріти ліжко заздалегідь, ще до приходу додому, налаштувати окремо зони тіла й ніг, задати розклад.</p>
+      <span class="crit">Критерій: функціональність і віддалений доступ</span>
+    </div>
+    <div class="card">
+      <h3>Сценарій: увімкнути, рівень 3, таймер 1 год</h3>
+      <ul class="steps" id="steps-app"></ul>
+      <div class="goms">H M P K M P K M P K M P K M P K<br>= <b>13,65 с</b></div>
+    </div>
+    <div class="card">
+      <h3>Закони на цьому екрані</h3>
+      <ul class="legend">
+        <li><span class="f">Фіттс:</span> увімкнення — уся картка «Нагрів», а не маленький перемикач; кнопки рівня розтягнуті на всю ширину; варіанти таймера — великі кнопки в нижній частині екрана, у зоні великого пальця.</li>
+        <li><span class="h">Хік:</span> замість барабана годин і хвилин — 6 готових варіантів таймера; головний екран поділено на смислові групи.</li>
+      </ul>
+    </div>
+    <button class="reset" data-reset="app">↺ Скинути до початкового стану</button>
+  </aside>
+</section>
+</main>
+
+<script src="js/common.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

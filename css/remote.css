@@ -1,0 +1,33 @@
+/* Варіант 1 — фізичний пульт */
+#stage-remote{background:
+  repeating-linear-gradient(135deg,rgba(255,255,255,.0) 0 22px,rgba(255,255,255,.18) 22px 24px),
+  radial-gradient(120% 90% at 50% 0%,#f6d9bd 0%,#e9bf9a 55%,#d9a37a 100%)}
+.remote{position:relative;width:206px;padding:24px 20px 30px;background:linear-gradient(165deg,#41444b 0%,#2a2c31 55%,#1f2125 100%);border-radius:44px 44px 60px 60px;box-shadow:0 40px 60px -28px rgba(60,25,0,.65),0 6px 14px rgba(60,25,0,.25),inset 0 1px 0 rgba(255,255,255,.1),inset 0 -2px 0 rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;gap:20px;margin-top:40px}
+.remote::before{content:"";position:absolute;top:-400px;left:50%;width:9px;margin-left:-4.5px;height:400px;background:linear-gradient(90deg,#1e1f22,#3a3c41,#1e1f22);border-radius:4px}
+.remote::after{content:"";position:absolute;top:-14px;left:50%;width:30px;margin-left:-15px;height:20px;background:#2a2c31;border-radius:8px 8px 4px 4px}
+.lcd{width:100%;border-radius:14px;padding:10px 12px 12px;background:#aeb894;box-shadow:inset 0 2px 6px rgba(0,0,0,.45),0 0 0 3px #17181b;font-family:"JetBrains Mono",monospace;color:#26301a;transition:background .25s, box-shadow .25s}
+.lcd.lit{background:#ffcf8a;box-shadow:inset 0 2px 6px rgba(120,50,0,.35),0 0 0 3px #17181b,0 0 22px rgba(255,170,60,.55);color:#3a1d00}
+.lcd-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;letter-spacing:.04em}
+.lcd-row .t{display:flex;align-items:center;gap:4px}
+.lcd-level{display:flex;align-items:flex-end;justify-content:center;gap:6px;margin:4px 0 2px}
+.lcd-level b{font-size:58px;line-height:1;font-weight:700}
+.lcd-level small{font-size:11px;font-weight:700;margin-bottom:9px;opacity:.75}
+.lcd-bars{display:flex;gap:3px;align-items:flex-end;justify-content:center;height:22px}
+.lcd-bars i{width:12px;background:currentColor;opacity:.13;border-radius:2px}
+.lcd-bars i.on{opacity:.9}
+.lcd.off .lcd-level b{opacity:.25}
+.rkeys{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%}
+.rbtn{border:0;cursor:pointer;color:#e9e6e1;background:linear-gradient(180deg,#4c5058,#373a40);box-shadow:0 4px 0 #15161a,0 6px 10px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.14);transition:transform .06s, box-shadow .06s}
+.rbtn:active,.rbtn.pressed{transform:translateY(3px);box-shadow:0 1px 0 #15161a,0 2px 4px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.1)}
+.power{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,#5a3036,#3d2226);box-shadow:0 4px 0 #15161a,0 6px 10px rgba(0,0,0,.35),inset 0 0 0 3px #e03131}
+.power svg{width:30px;height:30px}
+.power.is-on svg{filter:drop-shadow(0 0 6px #ff6b6b)}
+.rocker{width:100px;border-radius:50px;background:#17181b;padding:4px;display:flex;flex-direction:column;gap:4px}
+.rocker .rbtn{height:84px;font-size:44px;font-weight:600;line-height:1;display:grid;place-items:center}
+.rocker .plus{border-radius:46px 46px 12px 12px}
+.rocker .minus{border-radius:12px 12px 46px 46px}
+.rrow{display:flex;gap:10px;width:100%}
+.rrow .rbtn{flex:1;height:46px;border-radius:14px;font-size:10.5px;font-weight:800;letter-spacing:.07em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.rrow .rbtn svg{width:16px;height:16px}
+.engrave{font-size:9.5px;letter-spacing:.18em;color:#8b8780;font-weight:700;margin-top:-6px}
+.brandmark{font-size:10px;letter-spacing:.3em;color:#6b6862;font-weight:800}
