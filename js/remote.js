@@ -1,7 +1,7 @@
-/* Варіант 1 — фізичний пульт */
+/* Варіант 1 — пульт */
 (function(){
 if (!window.Proto) return;
-const {$, $$, SLOW, fmtT, human, clockAt, redraw, renderSteps, onReset} = Proto;
+const {$, $$, fmtT, human, clockAt, redraw, renderSteps, onReset} = Proto;
 
 const R = {on:false, level:1, timer:0, light:false, flash:0};
 const TIMERS = [0, 30, 60, 120, 240, 480];
@@ -14,14 +14,14 @@ function renderRemote(){
   lcd.classList.toggle('off', !R.on);
   lcd.classList.toggle('lit', R.light || !!R.flash);
   $('#r-pow').textContent = R.on ? 'УВІМК' : 'ВИМК';
-  $('#r-level').textContent = R.on ? R.level : '–';
+  $('#r-level').textContent = R.on ? R.level : '--';
   $('#r-timer').textContent = R.on ? fmtT(R.timer) : '--:--';
   $$('i', bars).forEach((b, i) => b.classList.toggle('on', R.on && i < R.level));
   $('#r-power').classList.toggle('is-on', R.on);
   renderSteps('steps-remote', [
     ['Увімкнути ковдру (⏻)', R.on],
-    ['Рівень 3 (двічі «+»)', R.on && R.level === 3],
-    ['Таймер 1:00 (двічі «Таймер»)', R.on && R.timer === 60],
+    ['Рівень 3 (двічі "+")', R.on && R.level === 3],
+    ['Таймер 1:00 (двічі "Таймер")', R.on && R.timer === 60],
   ]);
   redraw();
 }

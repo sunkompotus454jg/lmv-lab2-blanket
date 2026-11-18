@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Мобільний застосунок — керування електроковдрою</title>
-<link rel="stylesheet" href="css/fonts.css">
+<title>Мобільний застосунок: керування електроковдрою</title>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/app.css">
 </head>
@@ -13,12 +12,12 @@
 <header class="top">
   <div class="brand">
     <div class="logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 9c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/><path d="M4 15c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/></svg></div>
-    <div><h1>Електроковдра — прототипи керування</h1><p>Лабораторна робота №2 з ЛМВ · Кисіль В. О., ПЗПІ-25-3</p></div>
+    <div><h1>Електроковдра: прототипи керування</h1><p>Лабораторна робота №2 з ЛМВ · Кисіль В. О., ПЗПІ-25-3</p></div>
   </div>
   <nav class="tabs" aria-label="Варіанти інтерфейсу">
     <a href="index.html" data-tab="remote"><span class="n">1</span>Пульт</a>
     <a href="app.html" data-tab="app" aria-current="page"><span class="n">2</span>Мобільний застосунок</a>
-    <a href="voice.html" data-tab="voice"><span class="n">3</span>Голосове керування</a>
+    <a href="blanket.html" data-tab="blanket"><span class="n">3</span>Кнопки на ковдрі</a>
   </nav>
   <div class="laws">
     <button class="law f" id="lawFitts" aria-pressed="false"><i></i>Закон Фіттса</button>
@@ -57,12 +56,12 @@
             <div class="conn"><i></i>WARMLY Duo · підключено</div>
             <h2>Моя ковдра</h2>
           </div>
-          <button class="hero" id="a-power" data-fitts="уся картка — ціль" data-fitts-pos="in">
+          <button class="hero" id="a-power" data-fitts="уся картка є ціллю" data-fitts-pos="in">
             <div><div class="k">Нагрів</div><div class="v" id="a-hero-v">Вимкнено</div><div class="s" id="a-hero-s">Торкніться, щоб увімкнути</div></div>
             <span class="switch"></span>
           </button>
           <div class="acard" id="a-levelcard">
-            <div class="row"><b>Рівень нагріву</b><span id="a-level-val">—</span></div>
+            <div class="row"><b>Рівень нагріву</b><span id="a-level-val"></span></div>
             <div class="levels disabled" id="a-levels" data-fitts="кнопки на всю ширину" data-fitts-pos="right"></div>
           </div>
           <div class="acard">
@@ -99,13 +98,13 @@
     <div class="card">
       <h3>Сценарій: увімкнути, рівень 3, таймер 1 год</h3>
       <ul class="steps" id="steps-app"></ul>
-      <div class="goms">H M P K M P K M P K M P K M P K<br>= <b>13,65 с</b></div>
+      <div class="goms">H MPK MPK MPK MPK MPK<br>= <b>13,65 с</b></div>
     </div>
     <div class="card">
       <h3>Закони на цьому екрані</h3>
       <ul class="legend">
-        <li><span class="f">Фіттс:</span> увімкнення — уся картка «Нагрів», а не маленький перемикач; кнопки рівня розтягнуті на всю ширину; варіанти таймера — великі кнопки в нижній частині екрана, у зоні великого пальця.</li>
-        <li><span class="h">Хік:</span> замість барабана годин і хвилин — 6 готових варіантів таймера; головний екран поділено на смислові групи.</li>
+        <li><span class="f">Фіттс:</span> для увімкнення ціллю є вся картка "Нагрів", а не маленький перемикач; кнопки рівня розтягнуті на всю ширину; варіанти таймера є великими кнопками внизу екрана, у зоні великого пальця.</li>
+        <li><span class="h">Хік:</span> замість барабана годин і хвилин є 6 готових варіантів таймера; головний екран поділено на смислові групи.</li>
       </ul>
     </div>
     <button class="reset" data-reset="app">↺ Скинути до початкового стану</button>

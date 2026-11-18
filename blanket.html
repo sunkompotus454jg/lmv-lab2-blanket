@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кнопки на ковдрі: керування електроковдрою</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/blanket.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M4 9c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/><path d="M4 15c2-2 4 2 6 0s4-2 6 0 2 2 4 0"/></svg></div>
+    <div><h1>Електроковдра: прототипи керування</h1><p>Лабораторна робота №2 з ЛМВ · Кисіль В. О., ПЗПІ-25-3</p></div>
+  </div>
+  <nav class="tabs" aria-label="Варіанти інтерфейсу">
+    <a href="index.html" data-tab="remote"><span class="n">1</span>Пульт</a>
+    <a href="app.html" data-tab="app"><span class="n">2</span>Мобільний застосунок</a>
+    <a href="blanket.html" data-tab="blanket" aria-current="page"><span class="n">3</span>Кнопки на ковдрі</a>
+  </nav>
+  <div class="laws">
+    <button class="law f" id="lawFitts" aria-pressed="false"><i></i>Закон Фіттса</button>
+    <button class="law h" id="lawHick" aria-pressed="false"><i></i>Закон Хіка</button>
+  </div>
+</header>
+
+<main>
+<section class="panel active" id="tab-blanket">
+  <div class="stage" id="stage-blanket">
+    <div class="overlay"></div>
+    <div class="quilt">
+      <div class="quilt-edge">Верхній край ковдри (біля плеча)</div>
+      <div class="patch" id="b-patch" data-hick="лише 2 кнопки" data-hick-pos="right">
+        <div class="patch-title">Вбудований блок керування</div>
+        <div class="leds" id="b-levels"></div>
+        <button class="bbtn heat" id="b-heat" aria-label="Нагрів" data-fitts="найбільша кнопка: найчастіша дія" data-fitts-pos="side"><span class="dots"><i></i></span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.3 7.3a8 8 0 1 0 11.4 0"/></svg>НАГРІВ</button>
+        <div class="sep"></div>
+        <div class="leds" id="b-timers"></div>
+        <button class="bbtn tmr" id="b-timer" aria-label="Таймер"><span class="dots"><i></i><i></i></span><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg>ТАЙМЕР</button>
+      </div>
+      <div class="patch-help">
+        <b>Як користуватися</b>
+        "Нагрів", натиснути: увімкнути або наступний рівень (1…9 по колу)<br>
+        "Нагрів", утримувати 2 с: вимкнути<br>
+        "Таймер", натиснути: 0:30 → 1 год → 2 год → 4 год → 8 год → без таймера
+      </div>
+    </div>
+  </div>
+  <aside class="info">
+    <div class="card">
+      <h3>Коли цей варіант кращий</h3>
+      <p>Коли не хочеться шукати пульт чи телефон: кнопки вшиті в край ковдри, завжди під рукою і їх неможливо загубити. Підходить для щоденного швидкого вмикання, для дітей і для людей зі слабким зором (кнопки розрізняються на дотик за крапками).</p>
+      <span class="crit">Критерій: найшвидший, завжди під рукою</span>
+    </div>
+    <div class="card">
+      <h3>Сценарій: увімкнути, рівень 3, таймер 1 год</h3>
+      <ul class="steps" id="steps-blanket"></ul>
+      <div class="goms">H MPKKK MPKK<br>= <b>6,3 с</b></div>
+    </div>
+    <div class="card">
+      <h3>Закони на цьому екрані</h3>
+      <ul class="legend">
+        <li><span class="f">Фіттс:</span> "Нагрів" є найбільшою кнопкою, бо натискається найчастіше; блок вшито біля плеча, тож рука вже поруч.</li>
+        <li><span class="h">Хік:</span> лише 2 кнопки, кожна перемикає значення по колу; рівень показують світлодіоди, а не меню.</li>
+      </ul>
+    </div>
+    <button class="reset" data-reset="blanket">↺ Скинути до початкового стану</button>
+  </aside>
+</section>
+</main>
+
+<script src="js/common.js"></script>
+<script src="js/blanket.js"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 /* Варіант 2 — мобільний застосунок */
 (function(){
 if (!window.Proto) return;
-const {$, $$, SLOW, fmtT, human, clockAt, redraw, renderSteps, onReset} = Proto;
+const {$, $$, fmtT, human, clockAt, redraw, renderSteps, onReset} = Proto;
 
 const A = {view:'home', on:false, level:1, timer:0, zones:{body:true, feet:true}, sheet:false};
 const TEMP = [0, 28, 30, 32, 34, 36, 38, 40, 42, 44];
@@ -22,16 +22,16 @@ function renderApp(){
   $('#a-hero-s').textContent = A.on ? (A.timer ? 'Вимкнеться о ' + clockAt(A.timer) : 'Працює без таймера') : 'Торкніться, щоб увімкнути';
   lv.classList.toggle('disabled', !A.on);
   $$('button', lv).forEach(b => { const l = +b.dataset.l; b.classList.toggle('sel', A.on && l === A.level); b.classList.toggle('fill', A.on && l < A.level); });
-  $('#a-level-val').textContent = A.on ? A.level + ' з 9' : '—';
+  $('#a-level-val').textContent = A.on ? A.level + ' з 9' : '';
   const tv = $('#a-timer-val'); tv.textContent = human(A.timer) + ' ›'; tv.classList.toggle('set', !!A.timer);
   $$('.zone').forEach(z => z.classList.toggle('on', A.zones[z.dataset.zone]));
   $$('.chip').forEach(c => c.classList.toggle('sel', !!A.timer && +c.dataset.m === A.timer));
   renderSteps('steps-app', [
-    ['Відкрити застосунок «Ковдра»', A.view === 'app' || A.on],
+    ['Відкрити застосунок "Ковдра"', A.view === 'app' || A.on],
     ['Увімкнути нагрів', A.on],
     ['Обрати рівень 3', A.on && A.level === 3],
-    ['Відкрити «Таймер вимкнення»', A.sheet || !!A.timer],
-    ['Обрати «1 год»', A.timer === 60],
+    ['Відкрити "Таймер вимкнення"', A.sheet || !!A.timer],
+    ['Обрати "1 год"', A.timer === 60],
   ]);
   redraw();
 }
@@ -42,7 +42,7 @@ $('#a-power').addEventListener('click', () => { A.on = !A.on; renderApp(); });
 lv.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; if (!A.on){ toast('Спочатку увімкніть нагрів'); return; } A.level = +b.dataset.l; renderApp(); });
 $$('.zone').forEach(z => z.addEventListener('click', () => { A.zones[z.dataset.zone] = !A.zones[z.dataset.zone]; renderApp(); }));
 $('#a-timer-row').addEventListener('click', () => { A.sheet = true; renderApp(); });
-$('#a-sched').addEventListener('click', () => toast('Розклад — поза межами сценарію'));
+$('#a-sched').addEventListener('click', () => toast('Розклад поза межами сценарію'));
 $('#a-scrim').addEventListener('click', () => { A.sheet = false; renderApp(); });
 $('#a-chips').addEventListener('click', e => { const c = e.target.closest('.chip'); if (!c) return; A.timer = +c.dataset.m; A.sheet = false; renderApp(); });
 

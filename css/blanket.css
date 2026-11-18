@@ -1,0 +1,21 @@
+/* Варіант 3 — кнопки на ковдрі */
+.quilt{width:520px;height:650px;border:2px solid #333;border-radius:14px;background:repeating-linear-gradient(45deg,#fff 0 30px,#ececec 30px 32px);display:flex;flex-direction:column;align-items:center;padding:16px 20px 20px;gap:18px}
+.quilt-edge{align-self:stretch;text-align:center;font-size:12px;color:#666;border-bottom:1px dashed #999;padding-bottom:8px;background:#fff}
+.patch{width:250px;background:#fff;border:2px solid #333;border-radius:22px;padding:16px 18px 20px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.patch-title{font-size:12px;color:#666}
+.leds{display:flex;gap:6px;justify-content:center}
+.led{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:#666}
+.led i{width:14px;height:14px;border-radius:50%;border:1.5px solid #333;background:#fff}
+.led.on i{background:#222}
+.bbtn{border:2px solid #333;background:#f2f2f2;border-radius:50%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:bold;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.bbtn:active{background:#d6d6d6}
+.bbtn.heat{width:120px;height:120px;font-size:13px}
+.bbtn.heat svg{width:30px;height:30px;stroke:#222}
+.bbtn.heat.on{background:#d6d6d6;border-width:3px}
+.bbtn.tmr{width:92px;height:92px;font-size:12px}
+.bbtn.tmr svg{width:22px;height:22px;stroke:#222}
+.dots{display:flex;gap:4px}
+.dots i{width:7px;height:7px;border-radius:50%;background:#222}
+.sep{width:100%;border-top:1px dashed #bbb}
+.patch-help{margin-top:auto;background:#fff;border:1px solid #999;padding:10px 12px;font-size:13px;line-height:1.5;width:100%}
+.patch-help b{display:block;margin-bottom:2px}

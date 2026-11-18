@@ -9,7 +9,7 @@ const BASE_MIN = 22*60 + 47;
 const clockAt = add => { const t = (BASE_MIN + add) % 1440; return Math.floor(t/60) + ':' + String(t%60).padStart(2,'0'); };
 
 /* ---------- старі посилання виду index.html#app ведуть на окремі сторінки ---------- */
-const PAGES = {remote:'index.html', app:'app.html', voice:'voice.html'};
+const PAGES = {remote:'index.html', app:'app.html', blanket:'blanket.html'};
 const hash = (location.hash || '').slice(1);
 const current = ($('.tabs a[aria-current="page"]') || {}).dataset?.tab;
 if (PAGES[hash] && hash !== current){ location.replace(PAGES[hash] + location.search); return; }
